@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 
-export const userSlice = createSlice({
+export const settingsSlice = createSlice({
 name: 'counter',
 initialState: {
-isAuth: false,
-userId:null,
-userName:null,
+mobileMenu: false,
+themeColor:"#",
+theme:"light",
 value:0,
 },
 reducers: {
@@ -25,7 +25,7 @@ state.value += action.payload
 })
 
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions
+export const { increment, decrement, incrementByAmount } = settingsSlice.actions
 
 
-export default userSlice.reducer
+export default settingsSlice.reducer

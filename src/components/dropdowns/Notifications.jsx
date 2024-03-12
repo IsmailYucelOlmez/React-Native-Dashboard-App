@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 
-const Navbar = () => {
+const Notifications = () => {
   return (
     <View>
       
@@ -9,4 +9,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Notifications
