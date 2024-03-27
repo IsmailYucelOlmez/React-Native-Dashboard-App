@@ -8,20 +8,24 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleMobileMenu } from '../redux/slices/settingsSlice';
 const Avatar = require('../../assets/avatar.jpg');
 
 
 const Navbar = () => {
 
   const [activeMenu, setActiveMenu] = useState("");
-  const [mobileMenu, setMobileMenu] = useState("");
+  const {mobileMenu}=useSelector((state)=>state.settings)
+  const dispatch=useDispatch();
+
 
   return (
     <View className="flex flex-row justify-between items-center px-4 content-between border-b-2 border-black dark:border-white h-16 relative">
       
       <View className="flex flex-row items-center gap-3">
-        <TouchableOpacity onPress={() => setMobileMenu(prev => !prev)}>
-          {!mobileMenu ? <Feather name="menu" size={24} color="black" /> : <AntDesign name="closecircleo" size={24} color="black" />}
+        <TouchableOpacity onPress={() => dispatch(toggleMobileMenu())}>
+          <Feather name="menu" size={24} color="black" />
         </TouchableOpacity>
         <Text className="text-lg font-bold" >Company Inc.</Text>
       </View>

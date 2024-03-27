@@ -8,6 +8,8 @@ const Avatar = require('../../../assets/avatar.jpg');
 
 
 const UserProfile = ({ setActiveMenu }) => {
+
+  
   return (
     <View className="absolute w-56 p-2 bg-white -bottom-80 -mb-12 right-0">
       

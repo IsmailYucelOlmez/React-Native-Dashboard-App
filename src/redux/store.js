@@ -1,11 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
-import userSlice from './slices/userSlice'
-import settingsSlice from './slices/settingsSlice'
+import userReducer from './slices/userSlice'
+import settingsReducer from './slices/settingsSlice'
+import thunk from 'redux-thunk'
 
 
-export default configureStore({
+
+const store= configureStore({
 reducer: {
-    user:userSlice,
-    settings:settingsSlice,
+    user:userReducer,
+    settings:settingsReducer,
 },
+
 })
+
+export default store;
