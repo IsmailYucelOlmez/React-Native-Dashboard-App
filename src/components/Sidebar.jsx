@@ -50,8 +50,8 @@ const Sidebar = () => {
 
 
   return (
-    <TouchableOpacity onPress={()=>toggleMenu()} className={`${(mobileMenu || settings) ? 'w-full':'w-0'} z-20`}>
-      <SafeAreaView className={`${(mobileMenu || settings) ? 'w-full':'w-0'} h-screen absolute top-0 left-0  z-20`} >
+    <TouchableOpacity onPress={()=>toggleMenu()} className={`${(mobileMenu || settings) ? 'w-full':'w-0'} z-30`}>
+      <SafeAreaView className={`${(mobileMenu || settings) ? 'w-full':'w-0'} h-screen absolute top-0 left-0  z-30`} >
     
         <ScrollView className={`bg-[#fff] dark:bg-slate-800 dark:text-white ${(mobileMenu || settings) ? 'block':'hidden'} w-1/2 h-screen absolute py-6 rounded-md transition-transform transform -translate-x-full ease-in-out duration-300`}>
 
@@ -105,7 +105,7 @@ const Sidebar = () => {
           <Text className='text-lg font-semibold'>Theme</Text>
 
           
-          <TouchableOpacity className="border border-black mt-3" onPress={()=>{theme=="light" ?changeTheme("dark"):changeTheme("light")}} >
+          <TouchableOpacity className="mt-3" onPress={()=>{theme=="light" ?changeTheme("dark"):changeTheme("light")}} >
             {theme=="light" ? (     
               <MaterialIcons name="sunny" size={24} color="black" />
             ):(

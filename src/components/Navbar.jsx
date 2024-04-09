@@ -21,7 +21,7 @@ const Navbar = () => {
 
 
   return (
-    <View className="flex flex-row justify-between items-center px-4 content-between border-b-2 border-black dark:border-white h-16 relative">
+    <View className="flex flex-row justify-between z-20 items-center px-4 content-between border-b-2 border-black dark:border-white h-16 relative">
       
       <View className="flex flex-row items-center gap-3">
         <TouchableOpacity onPress={() => dispatch(toggleMobileMenu())}>

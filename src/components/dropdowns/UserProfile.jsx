@@ -11,7 +11,7 @@ const UserProfile = ({ setActiveMenu }) => {
 
   
   return (
-    <View className="absolute w-56 p-2 bg-white -bottom-80 -mb-12 right-0">
+    <View className="absolute w-56 p-2 bg-white -bottom-80 -mb-12 right-0 z-20">
       
       <Text className="font-bold text-lg text-left">User Profile</Text>
         

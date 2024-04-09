@@ -12,7 +12,7 @@ module.exports = {
 
       },
       backgroundImage:{
-        'hero-banner':"url('/src/assets/dashboard-hero-section.svg')",
+        'hero-banner':"url('/assets/dashboard-hero-section.svg')",
       },
       fontFamily:{
         'oswald': ['Oswald', 'sans-serif'],
