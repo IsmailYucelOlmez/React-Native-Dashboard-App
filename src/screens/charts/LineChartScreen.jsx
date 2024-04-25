@@ -1,11 +1,14 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LineChart } from 'react-native-chart-kit'
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar'
+import Sidebar from '../../components/Sidebar'
+import Navbar from '../../components/Navbar'
 import { Dimensions } from 'react-native'
+import { useSelector } from 'react-redux'
 
 const LineChartScreen = () => {
+
+  const {themeColor}=useSelector((state)=>state.settings)
 
     const line = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -24,14 +27,14 @@ const LineChartScreen = () => {
 
       <LineChart
     data={line}
-    width={Dimensions.get('window').width} // from react-native
+    width={Dimensions.get('window').width} 
     height={220}
     yAxisLabel={'$'}
     chartConfig={{
-      backgroundColor: '#e26a00',
+      backgroundColor: {themeColor},
       backgroundGradientFrom: '#fb8c00',
       backgroundGradientTo: '#ffa726',
-      decimalPlaces: 2, // optional, defaults to 2dp
+      decimalPlaces: 2, 
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       style: {
         borderRadius: 16

@@ -65,21 +65,7 @@ const HomeScreen = () => {
 
       </View>
 
-       {/* <View>
-        <TextInput value={firstNumber} keyboardType='numeric' placeholder='first number' className="border border-black" onChangeText={setFirstNumber}/>
-        <TextInput value={secondNumber} keyboardType='numeric' placeholder='second number' className="border border-black" onChangeText={setSecondNumber}/>
-        
-        <View className="flex flex-row">
-          <Pressable className="border border-black bg-cyan-500 p-2" onPress={()=>{setAnswer(Number(firstNumber)+Number(secondNumber))}}><Text>+</Text></Pressable>
-          <Pressable className="border border-black bg-cyan-500 p-2" onPress={()=>{setAnswer(firstNumber-secondNumber)}}><Text>-</Text></Pressable>
-          <Pressable className="border border-black bg-cyan-500 p-2" onPress={()=>{setAnswer(firstNumber/secondNumber)}}><Text>/</Text></Pressable>
-          <Pressable className="border border-black bg-cyan-500 p-2" onPress={()=>{setAnswer(firstNumber*secondNumber)}}><Text>*</Text></Pressable>
-        </View>
-
-        <Text>Answer:{answer}</Text>
-
-      </View>  */}
-       
+   
     </SafeAreaView>
   )
 }
