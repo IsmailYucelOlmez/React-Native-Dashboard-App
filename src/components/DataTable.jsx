@@ -34,15 +34,15 @@ const DataTable = ({data}) => {
 
   return (
     <View className="rounded-lg p-3 mt-5 border w-full flex flex-col bg-white" >
-      <View className="flex flex-row justify-between m-1 p-1.5 border-b-2 mb-3 pb-3 rounded-lg w-full">
+      <View className="flex flex-row justify-between items-center m-1 p-1.5 border-b-2 mb-3 pb-3 rounded-lg w-full">
           <Pressable><Text className="text-sm w-20">User Name</Text></Pressable> 
           <Pressable><Text className="text-sm w-20">Email</Text></Pressable> 
           <Pressable><Text className="text-sm w-20">Phone Number</Text></Pressable>
-          <Pressable className="bg-red-600 p-1 rounded-lg flex justify-center items-center"><Text className="text-white text-sm w-20">Delete All</Text></Pressable> 
+          <Pressable className="bg-red-600 p-1 rounded-lg flex justify-center items-center"><Text className="text-white text-center text-sm w-20">Delete All</Text></Pressable> 
       </View>
       <View className="m-1 p-1 rounded-lg  flex flex-col gap-2">
         {data2.map((e,i)=>(
-            <View key={i} className=" p-0.5 border-b rounded-lg flex flex-row gap-2 w-full">
+            <View key={i} className=" p-0.5 border-b rounded-lg flex flex-row items-center gap-2 w-full">
                 <Text className="text-sm w-1/4">{e.userName}</Text>
                 <Text className="text-sm w-1/4">{e.email}</Text>
                 <Text className="text-sm w-1/4">{e.phoneNumber}</Text>

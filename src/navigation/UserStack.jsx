@@ -10,6 +10,7 @@ import BarChartScreen from '../screens/charts/BarChartScreen';
 import AreaChart from '../screens/charts/AreaChart';
 import ProductScreen from '../screens/ProductScreen';
 import OrderScreen from '../screens/OrderScreen';
+import KanbanScreen from '../screens/KanbanScreen';
 
 const Stack=createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const UserStack = () => {
       <Stack.Screen name='EmployeeScreen' component={EmployeeScreen}/>
       <Stack.Screen name='ProductScreen' component={ProductScreen}/>
       <Stack.Screen name='OrderScreen' component={OrderScreen}/>
+      <Stack.Screen name='KanbanScreen' component={KanbanScreen}/>
       <Stack.Screen name='LineChartScreen' component={LineChartScreen}/>
       <Stack.Screen name='PieChartScreen' component={PieChartScreen}/>
       <Stack.Screen name='BarChartScreen' component={BarChartScreen}/>
