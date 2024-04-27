@@ -22,8 +22,8 @@ const LineChartScreen = () => {
 
   return (
     <SafeAreaView>
-      <Sidebar/>
-      <Navbar/>
+      <Navbar />
+       <Sidebar/>
 
       <LineChart
     data={line}

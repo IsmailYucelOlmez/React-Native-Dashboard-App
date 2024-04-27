@@ -22,8 +22,8 @@ const StackedBarChartScreen = () => {
 
   return (
     <SafeAreaView>
-        <Sidebar/>
-        <Navbar/>
+         <Navbar />
+       <Sidebar/>
 
         <StackedBarChart
           data={data}

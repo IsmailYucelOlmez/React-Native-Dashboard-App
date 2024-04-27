@@ -5,18 +5,18 @@ import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import DataTable from '../components/DataTable'
 
-const EmployeeScreen = () => {
+const ProductScreen = () => {
   return (
     <SafeAreaView>
-      <Navbar />
-       <Sidebar/>
+     <Navbar />
+      <Sidebar/>
       <View>
         <Text>employee</Text>
-        <DataTable/>
+        <DataTable data={[]}/>
       </View>
       
     </SafeAreaView>
   )
 }
 
-export default EmployeeScreen
+export default ProductScreen

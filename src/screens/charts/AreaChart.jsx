@@ -12,8 +12,8 @@ const AreaChart = () => {
 
   return (
     <SafeAreaView>
-      <Sidebar/>
-      <Navbar/>
+       <Navbar />
+       <Sidebar/>
 
       <LineChart
         areaChart

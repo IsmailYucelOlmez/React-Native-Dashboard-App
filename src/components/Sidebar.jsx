@@ -50,12 +50,13 @@ const Sidebar = () => {
 
 
   return (
-    <TouchableOpacity onPress={()=>toggleMenu()} className={`${(mobileMenu || settings) ? 'w-full':'w-0'} z-30`}>
-      <SafeAreaView className={`${(mobileMenu || settings) ? 'w-full':'w-0'} h-screen absolute top-0 left-0  z-30`} >
+    <SafeAreaView className={`${(mobileMenu || settings) ? 'w-full':'w-0'}  top-0 left-0  z-30`} >
+    <TouchableOpacity onPress={()=>toggleMenu()} className={`${(mobileMenu || settings) ? 'w-full':'w-0'} absolute h-screen z-30`}>
+      
     
-        <ScrollView className={`bg-[#fff] dark:bg-slate-800 dark:text-white ${(mobileMenu || settings) ? 'block':'hidden'} w-1/2 h-screen absolute py-6 rounded-md transition-transform transform -translate-x-full ease-in-out duration-300`}>
+        <ScrollView className={`bg-[#fff] dark:bg-slate-800 dark:text-white ${(mobileMenu || settings) ? 'block':'hidden'} w-1/2 h-screen absolute py-6 flex flex-col rounded-md transition-transform transform -translate-x-full ease-in-out duration-300`}>
 
-        <TouchableOpacity onPress={()=>navigateScreen("home")} className='flex flex-row justify-center items-center gap-2'>
+        <TouchableOpacity onPress={()=>navigateScreen("HomeScreen")} className='flex flex-row justify-center items-center gap-2 '>
           <MaterialCommunityIcons name="view-dashboard-outline" size={36} color="black" />
           <Text className='xs:text-lg md:text-xl font-bold'>Dashboard</Text>
         </TouchableOpacity> 
@@ -67,9 +68,8 @@ const Sidebar = () => {
         <Pressable onPress={()=>navigateScreen("HomeScreen")} className={`flex flex-row py-0.5 w-3/4 rounded-xl items-center justify-center ${route.name === "home" ? `bg-[${themeColor}] ` : ''}`} ><Entypo name="home" size={20} color={`${route.name=="home" ? 'white':'black'}`}/><Text className={`ml-3 ${route.name==="home" ? 'text-white text-lg font-semibold':'text-base'} `}>Home</Text></Pressable>
         <Pressable onPress={()=>navigateScreen("CustomerScreen")} className={`flex flex-row py-1 w-3/4 rounded-xl items-center justify-center ${route.name === "customer" ? `p-1 bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="user-tag" size={20} color={`${route.name=="customer" ? 'white':'black'}`}/><Text className={`ml-3 ${route.name==="customer" ? 'text-white text-lg font-semibold':'text-base'} `}>Customer</Text></Pressable>
         <Pressable onPress={()=>navigateScreen("EmployeeScreen")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "employee" ? `bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="user-tie" size={20} color={`${route.name=="employee" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="employee" ? 'text-white text-lg font-semibold':'text-base'} `}>Employees</Text></Pressable>
-        <Pressable onPress={()=>navigateScreen("product")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "product" ? `bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="product-hunt" size={20} color={`${route.name=="product" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="product" ? 'text-white text-lg font-semibold':'text-base'} `}>Product</Text></Pressable>
-        <Pressable onPress={()=>navigateScreen("order")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "order" ? `bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="shopping-cart" size={20} color={`${route.name=="order" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="order" ? 'text-white text-lg font-semibold':'text-base'} `}>Order</Text></Pressable>
-        <Pressable onPress={()=>navigateScreen("calendar")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "calendar" ? `bg-[${themeColor}] ` : ''}`} ><Ionicons name="calendar-clear" size={20} color={`${route.name=="calendar" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="calendar" ? 'text-white text-lg font-semibold':'text-base'} `}>Calendar</Text></Pressable>
+        <Pressable onPress={()=>navigateScreen("ProductScreen")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "product" ? `bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="product-hunt" size={20} color={`${route.name=="product" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="product" ? 'text-white text-lg font-semibold':'text-base'} `}>Product</Text></Pressable>
+        <Pressable onPress={()=>navigateScreen("OrderScreen")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "order" ? `bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="shopping-cart" size={20} color={`${route.name=="order" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="order" ? 'text-white text-lg font-semibold':'text-base'} `}>Order</Text></Pressable>
         <Pressable onPress={()=>navigateScreen("kanban")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "kanban" ? `bg-[${themeColor}] ` : ''}`} ><MaterialIcons name="view-kanban" size={20} color={`${route.name=="kanban" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="kanban" ? 'text-white text-lg font-semibold':'text-base'} `}>Kanban</Text></Pressable>
         <Pressable onPress={()=>navigateScreen("LineChartScreen")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "line-chart" ? `bg-[${themeColor}] ` : ''}`} ><AntDesign name="linechart" size={20} color={`${route.name=="line-chart" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="line-chart" ? 'text-white text-lg font-semibold':'text-base'} `}>Line</Text></Pressable>
         <Pressable onPress={()=>navigateScreen("PieChartScreen")} className={`flex flex-row py-1 w-3/4  rounded-xl items-center justify-center ${route.name === "pie-chart" ? `bg-[${themeColor}] ` : ''}`} ><AntDesign name="piechart" size={20} color={`${route.name=="pie-chart" ? 'white':'black'}`}/><Text  className={`ml-3 ${route.name==="pie-chart" ? 'text-white text-lg font-semibold':'text-base'} `}>Pie</Text></Pressable>
@@ -121,8 +121,9 @@ const Sidebar = () => {
 
         </ScrollView>
     
-      </SafeAreaView>
+      
     </TouchableOpacity>
+    </SafeAreaView>
   )
 }
 

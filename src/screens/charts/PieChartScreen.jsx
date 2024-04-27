@@ -52,8 +52,8 @@ const PieChartScreen = () => {
 
   return (
     <SafeAreaView>
-        <Sidebar/>
-        <Navbar/>
+         <Navbar />
+       <Sidebar/>
 <View className="mt-6" >
         <PieChart
           data={pieData}

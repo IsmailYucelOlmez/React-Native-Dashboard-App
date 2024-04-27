@@ -21,8 +21,8 @@ const BarChartScreen = () => {
 
   return (
     <SafeAreaView>
-        <Sidebar/>
-        <Navbar/>
+       <Navbar />
+       <Sidebar/>
 
         <BarChart
           data={barData}

@@ -5,13 +5,14 @@ import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import DataTable from '../components/DataTable'
 
-const EmployeeScreen = () => {
+
+const OrderScreen = () => {
   return (
     <SafeAreaView>
-      <Navbar />
-       <Sidebar/>
+     <Navbar />
+      <Sidebar/>
       <View>
-        <Text>employee</Text>
+        <Text>Orders</Text>
         <DataTable/>
       </View>
       
@@ -19,4 +20,4 @@ const EmployeeScreen = () => {
   )
 }
 
-export default EmployeeScreen
+export default OrderScreen
