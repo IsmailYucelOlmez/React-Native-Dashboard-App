@@ -1,31 +1,47 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
-
-export const userSlice = createSlice({
-name: 'counter',
-initialState: {
-isAuth: false,
-userId:null,
-userName:null,
-value:0,
-},
-reducers: {
-increment: (state) => {
-
-state.value += 1
-},
-decrement: (state) => {
-state.value -= 1
-},
-incrementByAmount: (state, action) => {
-state.value += action.payload
-},
-},
+export const userSlice = createApi({
+  reducerPath: 'user',
+  tagTypes: ["Users","User"],
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:7296/api/' }),
+  endpoints: (builder) => ({
+    getUsers: builder.query({
+      query: () => 'Users',
+      providesTags: ['Users'], 
+    }),
+    getUsersById: builder.query({
+        query: () => `Users/${id}`,
+        providesTags: ['User'], 
+      }),
+    addUser: builder.mutation({
+      query: (newUser) => ({
+        url: 'users',
+        method: 'POST',
+        body: newUser,
+      }),
+      invalidatesTags: ['Users'], 
+    }),
+    updateUser: builder.mutation({
+      query: ({ id, updatedUser }) => ({
+        url: `Users/${id}`,
+        method: 'PUT',
+        body: updatedUser,
+      }),
+       invalidatesTags: ['Users'],
+    }),
+    deleteUser: builder.mutation({
+      query: (id) => ({
+        url: `Users/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Users'],
+    }),
 })
+});
 
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions
+export const { getUsers,getUsersById,addUser,updateUser,deleteUser } = userSlice
 
 
-export default userSlice.reducer
+
