@@ -9,7 +9,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 
 const RootNavigator = () => {
-    const isAuth=true;
+    const isAuth=false;
   return (
     <NavigationContainer >
       
