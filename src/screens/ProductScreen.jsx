@@ -4,16 +4,27 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import DataTable from '../components/DataTable'
+import {productColumns} from '../../assets/columns'
+import { useGetProductsQuery } from '../redux/slices/apiSlice'
 
 const ProductScreen = () => {
+
+  const productData=useGetProductsQuery();
+
   return (
     <SafeAreaView>
      <Navbar />
       <Sidebar/>
-      <View>
-        <Text>employee</Text>
-        <DataTable data={[]}/>
-      </View>
+      {productData.status=="pending" ? (
+        <View>
+          <Text>Loading...</Text>
+        </View>
+      ):(
+        <View className="" >
+          <Text className="text-xl font-bold ml-2">Product</Text>
+          <DataTable data={productData?.data} columns={productColumns} state="user"/>
+        </View>
+      )}
       
     </SafeAreaView>
   )

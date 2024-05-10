@@ -5,7 +5,7 @@ export const apiSlice=createApi({
     reducerPath:'apiSlice',
     baseQuery:fetchBaseQuery({baseUrl:'https://localhost:7296/api/'}),
     endpoints:(builder)=>({
-
+        
         getCustomers: builder.query({ query: () => 'Customers' }),
         getEmployees: builder.query({ query: () => `Employees` }),
         getMessages: builder.query({ query: () => `Messages` }),
