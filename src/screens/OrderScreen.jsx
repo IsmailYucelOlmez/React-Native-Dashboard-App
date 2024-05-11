@@ -23,7 +23,7 @@ const OrderScreen = () => {
       ):(
         <View className="" >
           <Text className="text-xl font-bold ml-2">Order</Text>
-          <DataTable data={orderData?.data} columns={orderColumns} state="user"/>
+          <DataTable data={orderData?.data} columns={orderColumns} state="user" datatype="order"/>
         </View>
       )}
       

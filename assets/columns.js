@@ -1,9 +1,6 @@
-const customerColumns=
+export const customerColumns=
     [   
-        {
-            name:'Id',
-            width:'12',
-        },
+        
         {
             name:'Name',
             width:'12',
@@ -20,12 +17,9 @@ const customerColumns=
         }
     ]
 
-const employeeColumns=
+export const employeeColumns=
     [   
         {
-            name:'Id',
-            width:'12',
-        },{
             name:'Name',
         },{
             name:'Phone'
@@ -35,28 +29,32 @@ const employeeColumns=
             name:'Title'
         },{
             name:'Statu'
-        },{
-            name:'Location'
-        },{
+         },
+        //{
+        //     name:'Mail'
+        // },
+        {
             name:'Location'
         }
+        
     ]    
 
 
-const orderColumns=
+export const orderColumns=
     [
         {
-            name:'Id',
-        },{
             name:'Order Date',
+        },{
+            name:'Order Statu',
         },{
             name:'Total Price',
         },{
             name:'Customer Id',
-        }
+        },
+       
     ]
 
-const productColumns=
+export const productColumns=
     [
         {
             name:'Id'

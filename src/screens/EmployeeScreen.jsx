@@ -22,7 +22,7 @@ const EmployeeScreen = () => {
       ):(
         <View className="" >
           <Text className="text-xl font-bold ml-2">Employee</Text>
-          <DataTable data={employeeData?.data} columns={employeeColumns} state="user"/>
+          <DataTable data={employeeData?.data} columns={employeeColumns} state="user" datatype="employee" />
         </View>
       )}
       

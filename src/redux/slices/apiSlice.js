@@ -7,13 +7,14 @@ export const apiSlice=createApi({
     endpoints:(builder)=>({
         
         getCustomers: builder.query({ query: () => 'Customers' }),
-        getEmployees: builder.query({ query: () => `Employees` }),
+        getEmployees: builder.query({ query: () => `Emplyoees` }),
         getMessages: builder.query({ query: () => `Messages` }),
         getOrderItems: builder.query({ query: () => `OrderItems` }),
+        getOrderItemsByOrderId: builder.query({ query: (id) => `OrderItems?OrderId=${id}`}),
         getOrders: builder.query({ query: () => `Orders` }),
         getProducts: builder.query({ query: () => `Products` }),
         getTasks: builder.query({ query: () => `Tasks` }),
     })
 })
 
-export const {useGetCustomersQuery,useGetEmployeesQuery,useGetMessagesQuery,useGetOrderItemsQuery,useGetOrdersQuery,useGetProductsQuery,useGetTasksQuery}=apiSlice
+export const {useGetCustomersQuery,useGetEmployeesQuery,useGetMessagesQuery,useGetOrderItemsQuery,useGetOrderItemsByOrderIdQuery,useGetOrdersQuery,useGetProductsQuery,useGetTasksQuery}=apiSlice

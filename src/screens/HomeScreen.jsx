@@ -50,11 +50,11 @@ const HomeScreen = () => {
         <View className="mx-2 ">
           <Text className="text-sm text-center">Earnings</Text>
           <Text className="font-semibold text-center">63.288,23$</Text>
-          <Pressable onPress={()=>{}} className={`mt-3 p-1.5 rounded-lg bg-[${themeColor}]`}><Text className="text-sm text-white">Download</Text></Pressable>
+          <Pressable /*onPress={()=>{}}*/ className={`mt-3 p-1.5 rounded-lg bg-[${themeColor}]`}><Text className="text-sm text-white">Download</Text></Pressable>
           
         </View>  
 
-        <TouchableOpacity onPress={()=>navigation.navigate("")} className={`w-10 h-10 rounded-full bg-[${themeColor}] flex justify-center items-center mx-3`}>
+        <TouchableOpacity onPress={()=>navigation.navigate("HomeScreen")} className={`w-10 h-10 rounded-full bg-[${themeColor}] flex justify-center items-center mx-3`}>
           <FontAwesome name="dollar" size={18} color="white" />
         </TouchableOpacity>
 

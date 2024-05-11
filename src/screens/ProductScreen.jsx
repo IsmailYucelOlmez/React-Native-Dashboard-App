@@ -22,7 +22,7 @@ const ProductScreen = () => {
       ):(
         <View className="" >
           <Text className="text-xl font-bold ml-2">Product</Text>
-          <DataTable data={productData?.data} columns={productColumns} state="user"/>
+          <DataTable data={productData?.data} columns={productColumns} state="user" datatype="product"/>
         </View>
       )}
       
