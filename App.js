@@ -11,7 +11,6 @@ NativeWindStyleSheet.setOutput({ default: "native" });
 
   //responsive design ?
   //dark mode
-  //repair sidebar ?
 
 
 export default function App() {

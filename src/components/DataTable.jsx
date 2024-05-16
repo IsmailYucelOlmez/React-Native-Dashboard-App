@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { Text,ScrollView } from 'react-native'
 import { FontAwesome6 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -26,7 +26,7 @@ const DataTable = ({data,columns,state,datatype}) => {
           {data?.map((e,i)=>(
             <View key={i} className=" p-0.5 border-b rounded-lg flex flex-row items-center gap-2 w-full">
               {datatype=="customer" && (
-                <Fragment className="flex justify-between items-center gap-1">
+                <Fragment>
                   
                   <Text className="text-xs w-14 px-2 text-center">{e.cName}</Text>
                   <Text className="text-xs w-14 px-2 text-center">{e.cmail}</Text>
@@ -38,7 +38,7 @@ const DataTable = ({data,columns,state,datatype}) => {
               )}
 
               {datatype=="employee" && (
-                <Fragment className="flex justify-between items-center gap-1">
+                <Fragment >
                   <Text className="text-xs w-14 px-2 text-center">{e.ename}</Text>
                   <Text className="text-xs w-14 px-2 text-center">{e.ephone}</Text>
                   <Text className="text-xs w-14 px-2 text-center">{e.hireDate}</Text>
@@ -50,7 +50,7 @@ const DataTable = ({data,columns,state,datatype}) => {
               )}
 
               {datatype=="product" && (
-                <Fragment className="flex justify-between items-center gap-1 w-full">
+                <Fragment >
                   <Text className="text-xs w-full">{e.id}</Text>
                   <Text className="text-xs w-full">{e.pName}</Text>
                   <Text className="text-xs w-full">{e.unitPrice}</Text>
@@ -61,15 +61,14 @@ const DataTable = ({data,columns,state,datatype}) => {
               )}
 
               {datatype=="order" && (
-                <Fragment className="flex justify-between items-center gap-2 w-full">
+                <Fragment >
                   
                   <Text className="text-xs  w-full text-center">{e.orderDate}</Text>
                   <Text className="text-xs  w-full text-center">{e.orderStatu}</Text>
                   <Text className="text-xs  w-full text-center">{e.totalPrice}</Text>
                   <Text className="text-xs  w-full text-center">{e.customerId}</Text>
                   
-                  <AntDesign name="downcircle" size={16} color="black" className=""/>
-                  
+                  <Pressable onPress={()=>setSelectedId(e.id)}><AntDesign name="downcircle" size={16} color="black" className=""/></Pressable>
                   
                   
                 </Fragment>

@@ -1,12 +1,20 @@
-import React, {View} from 'react'
+import React, {View, useEffect} from 'react'
 import { useGetOrderItemsByOrderIdQuery } from '../redux/slices/apiSlice'
 
 const OrderDetails = ({id}) => {
 
-  const detailsData=useGetOrderItemsByOrderIdQuery();
+  var detailsData;
+
+  useEffect(()=>{
+
+    detailsData=useGetOrderItemsByOrderIdQuery(id);
+    console.log(detailsData)
+
+  },[id])
 
   return (
     <View>
+        <Text>detail component</Text>
       {detailsData.status="pending" ? (
         <Text>Loading</Text>
       ):(

@@ -28,6 +28,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-final-form": "^6.5.9",
+    "react-hook-form": "^7.51.4",
     "react-native": "0.73.4",
     "react-native-chart-kit": "^6.12.0",
     "react-native-document-picker": "^9.1.2",

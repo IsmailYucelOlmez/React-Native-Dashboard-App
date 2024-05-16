@@ -5,15 +5,18 @@ import AuthStack from './AuthStack';
 import Navbar from '../components/Navbar';
 import CustomerScreen from '../screens/CustomerScreen';
 import HomeScreen from '../screens/HomeScreen';
+import { useSelector } from 'react-redux';
 
 
 
 const RootNavigator = () => {
-    const isAuth=true;
+  
+  const {name}=useSelector((state)=>state.user)
+
   return (
     <NavigationContainer >
       
-       {isAuth ? <UserStack/>:<AuthStack/>}
+       {name ? <UserStack/>:<AuthStack/>}
     </NavigationContainer>
   )
 }
