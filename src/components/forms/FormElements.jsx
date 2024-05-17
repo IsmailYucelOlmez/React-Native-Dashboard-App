@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { View,TextInput,Text,TouchableOpacity } from 'react-native';
 import { Field } from 'react-final-form';
 
+
+
 export const CustomTextInput = ({ placeholder, input, meta, label ,secureTextEntry}) => (
     <View className="m-3" >
       
@@ -12,11 +14,9 @@ export const CustomTextInput = ({ placeholder, input, meta, label ,secureTextEnt
     </View>
   );
   
-export const SubmitButton = ({ handleSubmit }) => (
-    <TouchableOpacity
-      className="bg-[#00a884] rounded-xl px-2 py-1 w-full"
-      onPress={handleSubmit}>
-      <Text className="text-white text-center text-lg" >Giriş</Text>
+export const SubmitButton = ({ handleSubmit,ButtonText }) => (
+    <TouchableOpacity className="bg-[#00a884] rounded-xl px-2 py-1 w-full mt-3" onPress={handleSubmit}>
+      <Text className="text-white text-center text-lg" >{ButtonText}</Text>
     </TouchableOpacity>
   );
   
@@ -32,3 +32,4 @@ export const CustomField = ({ name, placeholder, label, validate, secureTextEntr
       />
     );
   };
+

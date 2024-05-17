@@ -10,6 +10,7 @@ import Sidebar from '../components/Sidebar'
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { changeId, changeName, changeRole } from '../redux/slices/userSlice';
+import UserForm from '../components/forms/UserForm';
 
 const UserProfileScreen = () => {
 
@@ -48,7 +49,9 @@ const UserProfileScreen = () => {
         <View className="mt-3 w-full flex flex-col gap-8">
             <View className="flex flex-row justify-center items-center gap-3">
                 <Text className="text-lg font-semibold" >User Profile </Text>
-                <FontAwesome6 name="pencil" size={16} color="black" />
+                <Pressable onPress={()=>setShowUserForm(true)}>
+                    <FontAwesome6 name="pencil" size={16} color="black" />
+                </Pressable>  
             </View>
             
             <View className="flex flex-col items-center gap-3">
@@ -104,7 +107,7 @@ const UserProfileScreen = () => {
                 messageData?.data ? (
             
                     messageData?.data?.map((e,i)=>(
-                      <View className='w-1/3 h-36 flex flex-col justify-between border border-black rounded-xl p-3'>
+                      <View key={i} className='w-1/3 h-36 flex flex-col justify-between border border-black rounded-xl p-3'>
                         <Text>{e.messageTitle}</Text>
                         <Text className="text-sm">{e.messageText}</Text>
                         <Text className='text-xs text-right '>{e.senderId}</Text>
@@ -117,7 +120,7 @@ const UserProfileScreen = () => {
                 taskData?.data ? (
             
                     taskData?.data?.map((e,i)=>(
-                      <View className='w-1/3 h-36 flex flex-col gap-3 border border-black rounded-xl p-0.5'>
+                      <View key={i} className='w-1/3 h-36 flex flex-col gap-3 border border-black rounded-xl p-0.5'>
                         <Text className='text'>{e.taskTitle}</Text>
                         <Text className="text-sm">{e.taskText}</Text>
                       </View>
@@ -128,8 +131,12 @@ const UserProfileScreen = () => {
             )}
             </View>
   
-
         </View>
+
+        {showUserForm && (
+
+            <UserForm operation={"PUT"} id={id} setShowUserForm={setShowUserForm}/>
+        )}
 
       </ScrollView>
     </SafeAreaView>

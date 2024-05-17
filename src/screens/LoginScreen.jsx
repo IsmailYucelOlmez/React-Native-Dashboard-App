@@ -45,7 +45,7 @@ const LoginScreen = () => {
 
               <CustomField name="password" validate={required} placeholder="Şifre Giriniz" label="Şifre" secureTextEntry={true} />
         
-              <SubmitButton {...{ handleSubmit }} />
+              <SubmitButton {...{ handleSubmit }} ButtonText={"Giriş"} />
             </>
           );
         }}
