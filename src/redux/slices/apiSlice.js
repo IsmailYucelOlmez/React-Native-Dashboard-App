@@ -9,12 +9,15 @@ export const apiSlice=createApi({
         getCustomers: builder.query({ query: () => 'Customers' }),
         getEmployees: builder.query({ query: () => `Emplyoees` }),
         getMessages: builder.query({ query: () => `Messages` }),
+        getMessagesByReceiverId: builder.query({ query: (id) =>`Messages?ReceiverId=${id}`}),
         getOrderItems: builder.query({ query: () => `OrderItems` }),
         getOrderItemsByOrderId: builder.query({ query: ({id}) => `OrderItems?OrderId=${id}`}),
         getOrders: builder.query({ query: () => `Orders` }),
         getProducts: builder.query({ query: () => `Products` }),
         getTasks: builder.query({ query: () => `Tasks` }),
+        getTasksByAssignedId: builder.query({ query: (id) =>`Tasks?AssignedUserId=${id}`}),
+        getUserById: builder.query({ query: (id) =>`Users/${id}`}),
     })
 })
 
-export const {useGetCustomersQuery,useGetEmployeesQuery,useGetMessagesQuery,useGetOrderItemsQuery,useGetOrderItemsByOrderIdQuery,useGetOrdersQuery,useGetProductsQuery,useGetTasksQuery}=apiSlice
+export const {useGetCustomersQuery,useGetEmployeesQuery,useGetMessagesQuery,useGetMessagesByReceiverIdQuery,useGetOrderItemsQuery,useGetOrderItemsByOrderIdQuery,useGetOrdersQuery,useGetProductsQuery,useGetTasksQuery,useGetTasksByAssignedIdQuery,useGetUserByIdQuery}=apiSlice

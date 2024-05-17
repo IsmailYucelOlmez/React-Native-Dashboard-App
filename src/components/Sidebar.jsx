@@ -63,7 +63,7 @@ const Sidebar = () => {
 
 
     {!settings ? (
-      <View className='flex flex-col items-center gap-4 mt-5'>
+      <View className='flex flex-col items-center gap-4 mt-5 z-30'>
 
         <Pressable onPress={()=>navigateScreen("HomeScreen")} className={`flex flex-row py-0.5 w-3/4 rounded-xl items-center justify-center ${route.name === "home" ? `bg-[${themeColor}] ` : ''}`} ><Entypo name="home" size={20} color={`${route.name=="home" ? 'white':'black'}`}/><Text className={`ml-3 ${route.name==="home" ? 'text-white text-lg font-semibold':'text-base'} `}>Home</Text></Pressable>
         <Pressable onPress={()=>navigateScreen("CustomerScreen")} className={`flex flex-row py-1 w-3/4 rounded-xl items-center justify-center ${route.name === "customer" ? `p-1 bg-[${themeColor}] ` : ''}`} ><FontAwesome5 name="user-tag" size={20} color={`${route.name=="customer" ? 'white':'black'}`}/><Text className={`ml-3 ${route.name==="customer" ? 'text-white text-lg font-semibold':'text-base'} `}>Customer</Text></Pressable>

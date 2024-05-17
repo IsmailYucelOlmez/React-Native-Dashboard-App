@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text ,ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
-import DataTable from '../components/DataTable'
-import { useGetCustomersQuery } from '../redux/slices/apiSlice'
-import {customerColumns} from '../../assets/columns.js'
+import Navbar from '../../components/Navbar.jsx'
+import Sidebar from '../../components/Sidebar.jsx'
+import DataTable from '../../components/DataTable.jsx'
+import { useGetCustomersQuery } from '../../redux/slices/apiSlice.js'
+import {customerColumns} from '../../../assets/columns.js'
 
 
 

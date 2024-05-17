@@ -41,9 +41,9 @@ const LoginScreen = () => {
         render={({ handleSubmit }) => {
           return (
             <>
-              <CustomField name="name" validate={required} placeholder="Enter User Name" label="User Name"/>
+              <CustomField name="name" validate={required} placeholder="Enter User Name" label="User Name" secureTextEntry={false}/>
 
-              <CustomField name="password" validate={required} placeholder="Şifre Giriniz" label="Şifre"/>
+              <CustomField name="password" validate={required} placeholder="Şifre Giriniz" label="Şifre" secureTextEntry={true} />
         
               <SubmitButton {...{ handleSubmit }} />
             </>

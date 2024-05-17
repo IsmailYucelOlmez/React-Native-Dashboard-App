@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
 import { Dimensions } from 'react-native'
 import { useSelector } from 'react-redux'
+import { View } from 'react-native'
 
 const LineChartScreen = () => {
 
@@ -23,29 +24,31 @@ const LineChartScreen = () => {
   return (
     <SafeAreaView>
       <Navbar />
-       <Sidebar/>
+      <Sidebar/>
 
-      <LineChart
-    data={line}
-    width={Dimensions.get('window').width} 
-    height={220}
-    yAxisLabel={'$'}
-    chartConfig={{
-      backgroundColor: {themeColor},
-      backgroundGradientFrom: '#fb8c00',
-      backgroundGradientTo: '#ffa726',
-      decimalPlaces: 2, 
-      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      style: {
-        borderRadius: 16
-      }
-    }}
-    bezier
-    style={{
-      marginVertical: 8,
-      borderRadius: 16
-    }}
-  />
+      <View className="flex justify-center items-center">
+        <LineChart
+          data={line}
+          width={Dimensions.get('window').width-20} 
+          height={220}
+          yAxisLabel={'$'}
+          chartConfig={{
+            backgroundColor: {themeColor},
+            backgroundGradientFrom: '#fb8c00',
+            backgroundGradientTo: '#e5e5e5',
+            decimalPlaces: 2, 
+            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+            style: {
+              borderRadius: 16
+            }
+          }}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 16
+          }}
+        />
+        </View>
       
     </SafeAreaView>
   )

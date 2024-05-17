@@ -1,11 +1,11 @@
 import React from 'react'
 import { View,Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar'
-import DataTable from '../components/DataTable'
-import { useGetEmployeesQuery } from '../redux/slices/apiSlice'
-import {employeeColumns} from '../../assets/columns'
+import Sidebar from '../../components/Sidebar'
+import Navbar from '../../components/Navbar'
+import DataTable from '../../components/DataTable'
+import { useGetEmployeesQuery } from '../../redux/slices/apiSlice'
+import {employeeColumns} from '../../../assets/columns'
 
 const EmployeeScreen = () => {
 

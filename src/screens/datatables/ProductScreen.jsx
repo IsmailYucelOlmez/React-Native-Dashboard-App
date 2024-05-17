@@ -1,11 +1,11 @@
 import React from 'react'
 import { View,Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar'
-import DataTable from '../components/DataTable'
-import {productColumns} from '../../assets/columns'
-import { useGetProductsQuery } from '../redux/slices/apiSlice'
+import Sidebar from '../../components/Sidebar'
+import Navbar from '../../components/Navbar'
+import DataTable from '../../components/DataTable'
+import {productColumns} from '../../../assets/columns'
+import { useGetProductsQuery } from '../../redux/slices/apiSlice'
 
 const ProductScreen = () => {
 

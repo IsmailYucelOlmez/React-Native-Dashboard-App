@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text,Image } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text,Image, Pressable } from 'react-native';
 import Notifications from './dropdowns/Notifications';
 import Messages from './dropdowns/Messages';
 import UserProfile from './dropdowns/UserProfile';
@@ -10,6 +10,7 @@ import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMobileMenu } from '../redux/slices/settingsSlice';
+import { useNavigation } from '@react-navigation/native';
 const Avatar = require('../../assets/avatar.jpg');
 
 
@@ -17,7 +18,9 @@ const Navbar = () => {
 
   const [activeMenu, setActiveMenu] = useState("");
   const {mobileMenu}=useSelector((state)=>state.settings)
+  const {name}=useSelector((state=>state.user))
   const dispatch=useDispatch();
+  const navigation=useNavigation();
 
 
   return (
@@ -32,27 +35,25 @@ const Navbar = () => {
       
       <View className="flex flex-row items-center gap-2">
               
-          <TouchableOpacity onPress={() => setActiveMenu(activeMenu !== "message" ? "message" : "")}>
+          {/* <TouchableOpacity onPress={() => setActiveMenu(activeMenu !== "message" ? "message" : "")}>
             {activeMenu === "message" ? <MaterialCommunityIcons name="message" size={24} color="black" /> :<Feather name="message-square" size={24} color="black" /> }
           </TouchableOpacity>
         
        
           <TouchableOpacity onPress={() => setActiveMenu(activeMenu !== "notification" ? "notification" : "")}>
             {activeMenu === "notification" ? <Ionicons name="notifications" size={24} color="black" /> : <Ionicons name="notifications-outline" size={24} color="black" />}
+          </TouchableOpacity> */}
+        
+        {/* <Image source={Avatar} className="w-10 h-10 rounded-full" /> */}
+          <TouchableOpacity onPress={()=>navigation.navigate("UserProfileScreen")}>
+            <Text className="font-semibold underline underline-offset-2">{name}</Text>        
           </TouchableOpacity>
-        
-        
-          <View className="flex flex-row items-center gap-2">
-            <Image source={Avatar} className="w-10 h-10 rounded-full" />
-            <Text className="font-semibold hidden md:block">Micheal</Text>
-            <TouchableOpacity onPress={() => setActiveMenu(activeMenu !== "profile" ? "profile" : "")}>
+        {/* <TouchableOpacity onPress={() => setActiveMenu(activeMenu !== "profile" ? "profile" : "")}>
               {activeMenu === "profile" ? <Entypo name="chevron-down" size={24} color="black" /> : <Entypo name="chevron-up" size={24} color="black" />}
-            </TouchableOpacity>
-          </View>
-        
+            </TouchableOpacity> */}
 
 
-        {activeMenu === "notification" && (
+        {/* {activeMenu === "notification" && (
           <Notifications setActiveMenu={setActiveMenu} />
         )}
 
@@ -62,7 +63,7 @@ const Navbar = () => {
 
         {activeMenu === "profile" && (
           <UserProfile setActiveMenu={setActiveMenu} />
-        )}
+        )} */}
         
       
     
