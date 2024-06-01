@@ -69,21 +69,10 @@ const DataTable = ({data,columns,state,datatype}) => {
                   <Text className="text-xs  w-full text-center">{e.customerId}</Text>
                   
                   <Pressable onPress={()=>setSelectedId(e.id)}><AntDesign name="downcircle" size={16} color="black" className=""/></Pressable>
-                  
-                  
+                        
                 </Fragment>
               )}
-                
-                
-              {state=="admin" && (
-                <View className="flex flex-row w-1/4">
-                  <FontAwesome6 name="pencil" size={24} color="black" />
-                  <MaterialIcons name="delete" size={24} color="black" />
-                </View>         
-              )}
-                
-                
-               
+                                                         
             </View>
           ))}
 
@@ -96,10 +85,10 @@ const DataTable = ({data,columns,state,datatype}) => {
         </View>
       )}
 
-      {selectedId && (
+      {/* {selectedId && (
 
         <OrderDetails id={selectedId} />
-      )}
+      )} */}
 
     </ScrollView>
   )

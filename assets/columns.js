@@ -68,3 +68,14 @@ export const productColumns=
             name:'Brand'
         }
     ]
+
+export const userColumns=
+    [{
+        name:"Name",
+    },{
+        name:'Mail',
+    },{
+        name:'Phone'
+    },{
+
+    }]

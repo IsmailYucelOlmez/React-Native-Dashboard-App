@@ -11,7 +11,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMobileMenu } from '../redux/slices/settingsSlice';
 import { useNavigation } from '@react-navigation/native';
-const Avatar = require('../../assets/avatar.jpg');
+//const Avatar = require('../../assets/avatar.jpg');
 
 
 const Navbar = () => {
@@ -19,6 +19,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const {mobileMenu}=useSelector((state)=>state.settings)
   const {name}=useSelector((state=>state.user))
+  const {role}=useSelector((state)=>state.user)
   const dispatch=useDispatch();
   const navigation=useNavigation();
 
@@ -45,9 +46,17 @@ const Navbar = () => {
           </TouchableOpacity> */}
         
         {/* <Image source={Avatar} className="w-10 h-10 rounded-full" /> */}
-          <TouchableOpacity onPress={()=>navigation.navigate("UserProfileScreen")}>
-            <Text className="font-semibold underline underline-offset-2">{name}</Text>        
-          </TouchableOpacity>
+        {role==1 && (
+          <Pressable onPress={()=>navigation.navigate("UserProfileScreen")}>
+            <Text className="font-semibold underline underline-offset-2">{name}</Text>
+          </Pressable>
+        )}
+        {role==2 && (
+          <Pressable onPress={()=>navigation.navigate("AdminPanelScreen")}>
+            <Text className="font-semibold underline underline-offset-2">Admin Panel</Text>
+          </Pressable>
+        )}
+          
         {/* <TouchableOpacity onPress={() => setActiveMenu(activeMenu !== "profile" ? "profile" : "")}>
               {activeMenu === "profile" ? <Entypo name="chevron-down" size={24} color="black" /> : <Entypo name="chevron-up" size={24} color="black" />}
             </TouchableOpacity> */}

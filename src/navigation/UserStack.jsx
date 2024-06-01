@@ -12,14 +12,16 @@ import ProductScreen from '../screens/datatables/ProductScreen';
 import OrderScreen from '../screens/datatables/OrderScreen';
 import KanbanScreen from '../screens/KanbanScreen';
 import UserProfileScreen from '../screens/UserProfileScreen';
+import AdminPanelScreen from '../screens/AdminPanelScreen';
 
 const Stack=createNativeStackNavigator();
 
 const UserStack = () => {
   return (
-    <Stack.Navigator initialRouteName='home' screenOptions={{headerShown:false}}>
+    <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
       <Stack.Screen name='HomeScreen' component={HomeScreen}/>
       <Stack.Screen name='UserProfileScreen' component={UserProfileScreen}/>
+      <Stack.Screen name='AdminPanelScreen' component={AdminPanelScreen}/>
       <Stack.Screen name='CustomerScreen' component={CustomerScreen}/>
       <Stack.Screen name='EmployeeScreen' component={EmployeeScreen}/>
       <Stack.Screen name='ProductScreen' component={ProductScreen}/>

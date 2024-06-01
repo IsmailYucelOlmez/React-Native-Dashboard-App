@@ -30,14 +30,25 @@ const UserForm = ({operation,id,setShowUserForm}) => {
 
   const onSubmitPost = (data)=>{
 
+    if(data.roleId=="Admin") data.roleId="2"
+    else data.roleId="1"
+    
+    axios.post(`https://localhost:7296/api/Users`,data).then(()=>{
+
+    }).catch((err)=>{
+
+      console.log(err);
+    })
   }
 
   return (
-    <View className="absolute bg-white flex justify-center items-center w-full h-full z-50 ">
+    <View className={`${operation=="PUT" ? 'absolute':'flex' }  bg-white flex justify-center items-center w-full h-full z-50`}>
 
-      <Pressable onPress={()=>setShowUserForm(false)} className="absolute right-2 top-2">
-        <Ionicons name="close-circle-outline" size={24} color="black" />
-      </Pressable>
+      {operation=="PUT" && (
+        <Pressable onPress={()=>setShowUserForm(false)} className="absolute right-2 top-2">
+          <Ionicons name="close-circle-outline" size={24} color="black" />
+        </Pressable>
+      )}
       <Form
         initialValues={initialValues}
         onSubmit={values => operation=="PUT" ? onSubmitPut(values):onSubmitPost(values)}
