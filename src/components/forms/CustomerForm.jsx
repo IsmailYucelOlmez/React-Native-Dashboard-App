@@ -1,27 +1,52 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Form,Field } from 'react-final-form';
 import { View,Pressable } from 'react-native'
 import { CustomField,SubmitButton } from '../../components/forms/FormElements'
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { useGetCustomerByIdQuery } from '../../redux/slices/apiSlice';
 
-const CustomerForm = ({operation,id,setShowCustomerForm}) => {
+const CustomerForm = ({operation,id,setAbsoluteFormType}) => {
 
   const initialValues = { cName: "",cmail: "",cPhone: "",cBudget: "",cStatu: "",cLocation: ""};
   const required = value => !value && 'Lütfen boş bırakmayınız';
+
+  const customerData=useGetCustomerByIdQuery(id)
+  initialValues.cName=customerData?.data?.cName
+  initialValues.cmail=customerData?.data?.cmail
+  initialValues.cPhone=customerData?.data?.cPhone
+  initialValues.cBudget=customerData?.data?.cBudget
+  initialValues.cStatu=customerData?.data?.cStatu
+  initialValues.cLocation=customerData?.data?.cLocation
+
+  const resetInitialValues=()=>{
+
+    initialValues.cName=""
+    initialValues.cmail=""
+    initialValues.cPhone=""
+    initialValues.cBudget=""
+    initialValues.cStatu=""
+    initialValues.cLocation=""
+  }
+
+  useEffect(()=>{
+
+    resetInitialValues();
+  },[])
 
   const onSubmitPut = (data) => {
 
     axios.put(`https://localhost:7296/api/Customers/${id}`,data).then(()=>{    
 
-      }).catch((err)=>{
-  
-        console.log(err);
-      })
-  
-    }
-  
+      resetInitialValues();
 
+    }).catch((err)=>{
+  
+      console.log(err);
+    })
+  
+  }
+  
   const onSubmitPost = (data)=>{
     
     axios.post(`https://localhost:7296/api/Customers`,data).then(()=>{
@@ -33,10 +58,10 @@ const CustomerForm = ({operation,id,setShowCustomerForm}) => {
   }
 
   return (
-    <View className={`${operation=="PUT" ? 'absolute':'' }  bg-white flex justify-center items-center w-full h-full z-50`}>
+    <View className={`${operation=="PUT" ? 'absolute h-1/2':'h-full' }  bg-white flex justify-center items-center w-full  z-50`}>
 
       {operation=="PUT" && (
-        <Pressable onPress={()=>setShowCustomerForm(false)} className="absolute right-2 top-2">
+        <Pressable onPress={()=>setAbsoluteFormType("")} className="absolute right-2 top-2">
           <Ionicons name="close-circle-outline" size={24} color="black" />
         </Pressable>
       )}

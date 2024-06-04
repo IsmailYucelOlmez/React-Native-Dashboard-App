@@ -1,14 +1,35 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Form,Field } from 'react-final-form';
 import { View,Pressable } from 'react-native'
 import { CustomField,SubmitButton } from '../../components/forms/FormElements'
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { useGetUserByIdQuery } from '../../redux/slices/apiSlice';
 
-const UserForm = ({operation,id,setShowUserForm}) => {
+const UserForm = ({operation,id,setAbsoluteFormType}) => {
 
   const initialValues = { userName: '', password: '', email:'',phone:'',roleId:''};
   const required = value => !value && 'Lütfen boş bırakmayınız';
+
+  const userData=useGetUserByIdQuery(id)
+  initialValues.userName=userData?.data?.userName
+  initialValues.email=userData?.data?.email
+  initialValues.phone=userData?.data?.phone
+  initialValues.roleId=userData?.data?.roleId ? 'User':'Admin'
+  
+  const resetInitialValues=()=>{
+
+    initialValues.userName=""
+    initialValues.email=""
+    initialValues.phone=""
+    initialValues.roleId=""
+    
+  }
+
+  useEffect(()=>{
+
+    resetInitialValues();
+  },[])
 
   const onSubmitPut = (data) => {
     
@@ -17,7 +38,7 @@ const UserForm = ({operation,id,setShowUserForm}) => {
 
     axios.put(`https://localhost:7296/api/Users/${id}`,data).then(()=>{
         
-        setShowUserForm(false);
+      setAbsoluteFormType("");
 
       }).catch((err)=>{
   
@@ -27,7 +48,6 @@ const UserForm = ({operation,id,setShowUserForm}) => {
   
     }
   
-
   const onSubmitPost = (data)=>{
 
     if(data.roleId=="Admin") data.roleId="2"
@@ -42,10 +62,10 @@ const UserForm = ({operation,id,setShowUserForm}) => {
   }
 
   return (
-    <View className={`${operation=="PUT" ? 'absolute':'flex' }  bg-white flex justify-center items-center w-full h-full z-50`}>
+    <View className={`${operation=="PUT" ? 'absolute':'flex' }  bg-white flex justify-center items-center w-full h-1/2 z-50`}>
 
       {operation=="PUT" && (
-        <Pressable onPress={()=>setShowUserForm(false)} className="absolute right-2 top-2">
+        <Pressable onPress={()=>setAbsoluteFormType("")} className="absolute right-2 top-2">
           <Ionicons name="close-circle-outline" size={24} color="black" />
         </Pressable>
       )}

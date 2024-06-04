@@ -1,14 +1,34 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Form,Field } from 'react-final-form';
 import { View,Pressable } from 'react-native'
 import { CustomField,SubmitButton } from '../../components/forms/FormElements'
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { useGetProductsByIdQuery } from '../../redux/slices/apiSlice';
 
-const ProductForm = ({operation,id,setShowProductForm}) => {
+const ProductForm = ({operation,id,setAbsoluteFormType}) => {
 
   const initialValues = { pName: "",unitPrice: "",stockAmount: "",pBrand: ""};
   const required = value => !value && 'Lütfen boş bırakmayınız';
+
+  const productData=useGetProductsByIdQuery(id)
+  initialValues.pName=productData?.data?.pName
+  initialValues.unitPrice=productData?.data?.unitPrice
+  initialValues.stockAmount=productData?.data?.stockAmount
+  initialValues.pBrand=productData?.data?.pBrand
+  
+  const resetInitialValues=()=>{
+
+    initialValues.pName=""
+    initialValues.unitPrice=""
+    initialValues.stockAmount=""
+    initialValues.pBrand="" 
+  }
+
+  useEffect(()=>{
+
+    resetInitialValues();
+  },[])
 
   const onSubmitPut = (data) => {
 
@@ -33,10 +53,10 @@ const ProductForm = ({operation,id,setShowProductForm}) => {
   }
 
   return (
-    <View className={`${operation=="PUT" ? 'absolute':'' }  bg-white flex justify-center items-center w-full h-full z-50`}>
+    <View className={`${operation=="PUT" ? 'absolute':'' }  bg-white flex justify-center items-center w-full h-1/2 z-50`}>
 
       {operation=="PUT" && (
-        <Pressable onPress={()=>setShowProductForm(false)} className="absolute right-2 top-2">
+        <Pressable onPress={()=>setAbsoluteFormType("")} className="absolute right-2 top-2">
           <Ionicons name="close-circle-outline" size={24} color="black" />
         </Pressable>
       )}

@@ -1,9 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Pressable, View } from 'react-native'
 import { Text,ScrollView } from 'react-native'
-import { FontAwesome6 } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import OrderDetails from './OrderDetails';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -84,11 +81,6 @@ const DataTable = ({data,columns,state,datatype}) => {
           <Text>yükleniyor...</Text>
         </View>
       )}
-
-      {/* {selectedId && (
-
-        <OrderDetails id={selectedId} />
-      )} */}
 
     </ScrollView>
   )

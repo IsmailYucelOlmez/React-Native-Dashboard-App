@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-const Avatar = require('../../../assets/avatar.jpg');
+
 
 
 const UserProfile = ({ setActiveMenu }) => {
@@ -16,7 +16,7 @@ const UserProfile = ({ setActiveMenu }) => {
       <Text className="font-bold text-lg text-left">User Profile</Text>
         
       <View className="flex-row items-center gap-3 mt-2">
-        <Image source={Avatar} className="w-14 h-14 rounded-full" />
+        <Image source={""} className="w-14 h-14 rounded-full" />
         <View>
           <Text className="font-bold ">Micheal C.</Text>
           <Text>Admin</Text>

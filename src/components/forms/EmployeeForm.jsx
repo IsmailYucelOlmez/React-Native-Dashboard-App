@@ -1,14 +1,38 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Form,Field } from 'react-final-form';
 import { View,Pressable } from 'react-native'
 import { CustomField,SubmitButton } from '../../components/forms/FormElements'
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { useGetEmployeesByIdQuery } from '../../redux/slices/apiSlice';
 
-const EmployeeForm = ({operation,id,setShowEmployeeForm}) => {
+const EmployeeForm = ({operation,id,setAbsoluteFormType}) => {
 
   const initialValues = { ename: "",ephone: "",hireDate: "",job: "",estatu: "",mail: "",elocation: ""};
   const required = value => !value && 'Lütfen boş bırakmayınız';
+
+  const employeeData=useGetEmployeesByIdQuery(id)
+  initialValues.ename=employeeData?.data?.ename
+  initialValues.ephone=employeeData?.data?.ephone
+  initialValues.hireDate=employeeData?.data?.hireDate
+  initialValues.job=employeeData?.data?.job
+  initialValues.estatu=employeeData?.data?.estatu
+  initialValues.elocation=employeeData?.data?.elocation
+
+  const resetInitialValues=()=>{
+
+    initialValues.ename=""
+    initialValues.ephone=""
+    initialValues.hireDate=""
+    initialValues.job=""
+    initialValues.estatu=""
+    initialValues.elocation=""
+  }
+
+  useEffect(()=>{
+
+    resetInitialValues();
+  },[])
 
   const onSubmitPut = (data) => {
 
@@ -18,10 +42,8 @@ const EmployeeForm = ({operation,id,setShowEmployeeForm}) => {
   
         console.log(err);
       })
-  
     }
   
-
   const onSubmitPost = (data)=>{
     
     axios.post(`https://localhost:7296/api/Emplyoees`,data).then(()=>{
@@ -33,10 +55,10 @@ const EmployeeForm = ({operation,id,setShowEmployeeForm}) => {
   }
 
   return (
-    <View className={`${operation=="PUT" ? 'absolute':'' }  bg-white flex justify-center items-center w-full h-full z-50`}>
+    <View className={`${operation=="PUT" ? 'absolute':'' }  bg-white flex justify-center items-center w-full h-1/2 z-50`}>
 
       {operation=="PUT" && (
-        <Pressable onPress={()=>setShowEmployeeForm(false)} className="absolute right-2 top-2">
+        <Pressable onPress={()=>setAbsoluteFormType("")} className="absolute right-2 top-2">
           <Ionicons name="close-circle-outline" size={24} color="black" />
         </Pressable>
       )}
@@ -57,8 +79,6 @@ const EmployeeForm = ({operation,id,setShowEmployeeForm}) => {
 
               <CustomField name="estatu" validate={required} placeholder="Enter Statu(active,disabled)"  secureTextEntry={false} />
 
-              <CustomField name="mail" validate={required} placeholder="Enter Mail" secureTextEntry={false} />
-              
               <CustomField name="elocation" validate={required} placeholder="Enter Location" secureTextEntry={false} />
     
               <SubmitButton {...{ handleSubmit }} ButtonText={`${operation=="PUT" ? 'Update':'Create'}`} />

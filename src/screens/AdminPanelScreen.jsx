@@ -18,15 +18,19 @@ import EmployeeForm from '../components/forms/EmployeeForm'
 import ProductForm from '../components/forms/ProductForm'
 import MessageForm from '../components/forms/MessageForm'
 import TaskForm from '../components/forms/TaskForm'
+import CustomerDataTable from '../components/datatables/CustomerDatatable'
+import EmployeeDataTable from '../components/datatables/EmployeeDatatable'
+import ProductDataTable from '../components/datatables/ProductDatatable'
+import UserDataTable from '../components/datatables/UserDatatable'
 
 const AdminPanelScreen = () => {
 
   const [selectedTab,setSelectedTab]=useState("get");
   const [showPassword,setShowPassword]=useState(false);
-  const [showUserForm,setShowUserForm]=useState(false);
   const [dataTableType,setDataTableType]=useState("customer");
   const [formType,setFormType]=useState("customer");
   const [absoluteFormType,setAbsoluteFormType]=useState("");
+  const [selectedId,setSelectedId]=useState("");
 
   const customerData=useGetCustomersQuery();
   
@@ -60,7 +64,7 @@ const AdminPanelScreen = () => {
       <View className="mt-3 w-full flex flex-col gap-8">
             <View className="flex flex-row justify-center items-center gap-3">
                 <Text className="text-lg font-semibold" >Admin Panel</Text>
-                <Pressable onPress={()=>{setShowUserForm(true);setFormType}}>
+                <Pressable onPress={()=>{setAbsoluteFormType("user");setFormType}}>
                     <FontAwesome6 name="pencil" size={16} color="black" />
                 </Pressable>  
             </View>
@@ -123,7 +127,26 @@ const AdminPanelScreen = () => {
                             <Pressable className={`${dataTableType=="employee" ?'border-b':''} border-black p-1`} onPress={()=>setDataTableType("employee")}><Text className="font-semibold">Employee</Text></Pressable>
                         </View>
 
-                        <DataTable data={customerData?.data} columns={customerColumns} state={"admin"} datatype={dataTableType}/>
+                        {dataTableType=="customer" && (
+
+                            <CustomerDataTable state={"admin"} setAbsoluteFormType={setAbsoluteFormType} setSelectedId={setSelectedId}/>
+                        )}
+
+                        {dataTableType=="employee" && (
+
+                            <EmployeeDataTable state={"admin"} setAbsoluteFormType={setAbsoluteFormType} setSelectedId={setSelectedId}/>
+                        )}
+
+                        {dataTableType=="product" && (
+
+                            <ProductDataTable state={"admin"} setAbsoluteFormType={setAbsoluteFormType} setSelectedId={setSelectedId}/>
+                        )}
+
+                        {dataTableType=="user" && (
+
+                            <UserDataTable state={"admin"} setAbsoluteFormType={setAbsoluteFormType} setSelectedId={setSelectedId}/>
+                        )}
+                        
                     </View>
                       
                 ):(
@@ -140,15 +163,15 @@ const AdminPanelScreen = () => {
                         )}
 
                         {formType=="customer" && (
-                            <CustomerForm operation={"POST"} id={id} />
+                            <CustomerForm operation={"POST"} id={selectedId} />
                         )}
 
                         {formType=="product" && (
-                            <ProductForm operation={"POST"} id={id} />
+                            <ProductForm operation={"POST"} id={selectedId} />
                         )}
 
                         {formType=="employee" && (
-                            <EmployeeForm operation={"POST"} id={id} />
+                            <EmployeeForm operation={"POST"} id={selectedId} />
                         )}
                                         
                     </View>
@@ -157,9 +180,9 @@ const AdminPanelScreen = () => {
             </View>
         </View>
 
-        {showUserForm && (
+        {absoluteFormType=="user" && (
 
-            <UserForm operation={"PUT"} id={id} setShowUserForm={setShowUserForm}/>     
+            <UserForm operation={"PUT"} id={id} setAbsoluteFormType={setAbsoluteFormType}/>     
         )}
 
         {absoluteFormType=="message" && (
@@ -170,6 +193,21 @@ const AdminPanelScreen = () => {
         {absoluteFormType=="task" && (
 
             <TaskForm  setAbsoluteFormType={setAbsoluteFormType}/>
+        )}
+
+        {absoluteFormType=="customer" && (
+
+            <CustomerForm operation={"PUT"} id={selectedId} setAbsoluteFormType={setAbsoluteFormType}/>     
+        )}
+
+        {absoluteFormType=="product" && (
+
+            <ProductForm operation={"PUT"} id={selectedId} setAbsoluteFormType={setAbsoluteFormType}/>     
+        )}
+
+        {absoluteFormType=="employee" && (
+
+            <EmployeeForm operation={"PUT"} id={selectedId} setAbsoluteFormType={setAbsoluteFormType}/>     
         )}
 
 

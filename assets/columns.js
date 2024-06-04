@@ -30,9 +30,6 @@ export const employeeColumns=
         },{
             name:'Statu'
          },
-        //{
-        //     name:'Mail'
-        // },
         {
             name:'Location'
         }
@@ -56,9 +53,7 @@ export const orderColumns=
 
 export const productColumns=
     [
-        {
-            name:'Id'
-        },{
+       {
             name:'Name'
         },{
             name:'Unit Price'
@@ -77,5 +72,5 @@ export const userColumns=
     },{
         name:'Phone'
     },{
-
+        name:'Role'
     }]

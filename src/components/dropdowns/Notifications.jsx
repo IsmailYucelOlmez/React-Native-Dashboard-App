@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-const Avatar2 = require('../../../assets/avatar2.jpg');
-const Avatar3 = require('../../../assets/avatar3.png');
-const Avatar4 = require('../../../assets/avatar4.jpg');
+
 
 const Notification = ({ setActiveMenu }) => {
   return (
@@ -12,7 +10,7 @@ const Notification = ({ setActiveMenu }) => {
       <Text className="font-bold text-lg text-left">Notifications</Text>
 
       <View className="flex flex-row gap-2 mt-2 items-center">
-        <Image source={Avatar2} className="w-14 h-14 md:w-64 md:h-64 rounded-full" />
+        <Image source={""} className="w-14 h-14 md:w-64 md:h-64 rounded-full" />
         <View>
           <Text className="font-bold text-base">Sophia S.</Text>
           <Text>Welcome to team</Text>
@@ -20,7 +18,7 @@ const Notification = ({ setActiveMenu }) => {
       </View>
 
       <View className="flex flex-row gap-2 mt-2 items-center">
-        <Image source={Avatar3} className="w-14 h-14 rounded-full" />
+        <Image source={""} className="w-14 h-14 rounded-full" />
         <View>
           <Text className="font-bold">Mike D.</Text>
           <Text>New files ready</Text>
@@ -28,7 +26,7 @@ const Notification = ({ setActiveMenu }) => {
       </View>
 
       <View className="flex flex-row gap-2 mt-2 items-center">
-        <Image source={Avatar4} className="w-14 h-14 md:w-64 md:h-64 rounded-full" />
+        <Image source={""} className="w-14 h-14 md:w-64 md:h-64 rounded-full" />
         <View>
           <Text className="font-bold text-base">Mike D.</Text>
           <Text>Meeting Date Changed</Text>
