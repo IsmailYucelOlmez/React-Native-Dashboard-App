@@ -3,9 +3,8 @@ import { View,Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
-import DataTable from '../../components/DataTable'
 import { useGetEmployeesQuery } from '../../redux/slices/apiSlice'
-import {employeeColumns} from '../../../assets/columns'
+import EmployeeDataTable from '../../components/datatables/EmployeeDatatable'
 
 const EmployeeScreen = () => {
 
@@ -22,7 +21,7 @@ const EmployeeScreen = () => {
       ):(
         <View className="" >
           <Text className="text-xl font-bold ml-2">Employee</Text>
-          <DataTable data={employeeData?.data} columns={employeeColumns} state="user" datatype="employee" />
+          <EmployeeDataTable state={"user"} />
         </View>
       )}
       

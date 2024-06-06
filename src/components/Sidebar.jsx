@@ -99,20 +99,7 @@ const Sidebar = () => {
 
         </View>
 
-        <View className='w-3/4 flex flex-col justify-center items-center my-10'>
-          <Text className='text-lg font-semibold'>Theme</Text>
-
-          
-          <TouchableOpacity className="mt-3" onPress={()=>{theme=="light" ?changeTheme("dark"):changeTheme("light")}} >
-            {theme=="light" ? (     
-              <MaterialIcons name="sunny" size={24} color="black" />
-            ):(
-              <Ionicons name="moon" size={24} color="black"/>
-            )}        
-          </TouchableOpacity>
-          
-
-        </View>
+        
         
         <AntDesign onPress={()=>{setSettings(false);dispatch(toggleMobileMenu())}} name="close" size={24} color="black" />
 

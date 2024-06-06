@@ -11,13 +11,13 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { changeId, changeName, changeRole } from '../redux/slices/userSlice';
 import UserForm from '../components/forms/UserForm';
+import MessageForm from '../components/forms/MessageForm'
 
 const UserProfileScreen = () => {
 
   const [selectedTab,setSelectedTab]=useState("message");
   const [showPassword,setShowPassword]=useState(false);
-  const [showUserForm,setShowUserForm]=useState(false);
-  const [showMessageForm,setShowMessageForm]=useState(false);
+  const [absoluteFormType,setAbsoluteFormType]=useState("");
   
   const dispatch=useDispatch();
   const {id}=useSelector((state)=>state.user);
@@ -50,7 +50,7 @@ const UserProfileScreen = () => {
         <View className="mt-3 w-full flex flex-col gap-8">
             <View className="flex flex-row justify-center items-center gap-3">
                 <Text className="text-lg font-semibold" >User Profile </Text>
-                <Pressable onPress={()=>setShowUserForm(true)}>
+                <Pressable onPress={()=>setAbsoluteFormType("user")}>
                     <FontAwesome6 name="pencil" size={16} color="black" />
                 </Pressable>  
             </View>
@@ -93,7 +93,7 @@ const UserProfileScreen = () => {
                     <Text>Tasks</Text>
                 </View>
 
-                <Pressable onPress={()=>showMessageForm(true)} className="flex flex-row justify-center items-center gap-3">
+                <Pressable onPress={()=>setAbsoluteFormType("message")} className="flex flex-row justify-center items-center gap-3">
                     <Text>Send Message</Text>
                     <FontAwesome6 name="message" size={16} color="black" />
                 </Pressable>
@@ -134,9 +134,14 @@ const UserProfileScreen = () => {
   
         </View>
 
-        {showUserForm && (
+        {absoluteFormType=="user" && (
 
-            <UserForm operation={"PUT"} id={id} setShowUserForm={setShowUserForm}/>
+            <UserForm operation={"PUT"} id={id} setAbsoluteFormType={setAbsoluteFormType}/>
+        )}
+
+        {absoluteFormType=="message" && (
+
+            <MessageForm setAbsoluteFormType={setAbsoluteFormType}/>
         )}
 
       </ScrollView>
