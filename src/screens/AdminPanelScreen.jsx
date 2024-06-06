@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
-import DataTable from '../components/DataTable'
 import { FontAwesome } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
@@ -10,7 +9,6 @@ import { changeId, changeName, changeRole } from '../redux/slices/userSlice'
 import { useGetCustomersQuery, useGetProductsQuery, useGetUserByIdQuery } from '../redux/slices/apiSlice'
 import { View, ScrollView,Pressable,Text } from 'react-native'
 import UserForm from '../components/forms/UserForm';
-import { customerColumns } from '../../assets/columns'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import CustomerForm from '../components/forms/CustomerForm'
